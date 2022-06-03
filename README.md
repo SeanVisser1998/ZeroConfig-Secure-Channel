@@ -32,3 +32,4 @@ Peer toevoegen aan management server:
 2. git clone https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git
 3. chmod +x csnn_netbird_add_peer.sh
 4. ./csnn_netbird_add_peer.sh <domein_netbird_server:poort_netbird_server> <netbird_setup_key>
+5. Default poort_netbird_server = 33071
