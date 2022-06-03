@@ -1,6 +1,8 @@
 # ZeroConfig-Secure-Channel
 Het ontwikkelen van een ZeroConfig client-to-client secure channel tussen twee NATed netwerken
 
+Credits: https://github.com/netbirdio/netbird
+
 Project doelen:
 - OpenSource code en documentatie
 - Secure by Design
