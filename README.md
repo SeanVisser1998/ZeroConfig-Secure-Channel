@@ -3,6 +3,11 @@ Het ontwikkelen van een ZeroConfig client-to-client secure channel tussen twee N
 
 Credits: https://github.com/netbirdio/netbird
 
+Leeswaardig:
+- https://netbird.io/docs/getting-started/self-hosting
+- https://docs.docker.com/compose/install/
+- https://auth0.com/docs/quickstart/spa/react/01-login#configure-auth0
+
 Project doelen:
 - OpenSource code en documentatie
 - Secure by Design
