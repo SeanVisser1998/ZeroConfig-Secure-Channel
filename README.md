@@ -18,7 +18,7 @@ Project doelen:
 Benodigdheden:
 - Gratis AUTH0 account
 - Twee apparaten die een Peer-to-Peer verbinding willen
-- Server 
+- Server met poorten 443, 33071, 33073 & 10000 open. (Standaard poorten van Netbird)
 - Domein naam
 
 Dependancies:
