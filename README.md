@@ -26,7 +26,7 @@ Dependancies:
 - Netbird
 - Auth0
 
-Installatie Netbird server:
+Installatie Netbird Management Server:
 1. Open poort 443, 33071, 33073 & 10000 op de firewall
 2. Pas < USER SSH KEY > naar de PUBLIC key die geautoriseerd is om te loggen op de Management Server aan in cloud-config
 3. Voeg de juiste variabelen toe aan NETBIRD_DOMAIN, AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_AUDIENCE & LETSENCRYPT_EMAIL in cloud-config
