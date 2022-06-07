@@ -29,7 +29,7 @@ write_files:
   append: true
 - path: /etc/ssh/sshd_config
   content: |
-         Port 2
+         Port 22
          Protocol 2
          HostKey /etc/ssh/ssh_host_rsa_key
          HostKey /etc/ssh/ssh_host_dsa_key
