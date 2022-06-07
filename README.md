@@ -28,14 +28,14 @@ Dependancies:
 
 Installatie Netbird server:
 1. Open poort 443, 33071, 33073 & 10000 op de firewall
-2. Pas <USER SSH KEY> aan in cloud-config
+2. Pas <USER SSH KEY> naar de PUBLIC key die geautoriseerd is om te loggen op de Management Server aan in cloud-config
 3. Voeg de juiste variabelen toe aan NETBIRD_DOMAIN, AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_AUDIENCE & LETSENCRYPT_EMAIL in cloud-config
-4. Plaats cloud-config & csnn_netbird.ssh op de server VOOR de eerste boot
+4. Plaats cloud-config op de server VOOR de eerste boot
 5. Netbird management server wordt nu automatisch ingesteld na de eerste boot
 
 Peer toevoegen aan management server:
-1. Pas <USER SSH KEY> aan in cloud-config
+1. Pas <USER SSH KEY> naar de PUBLIC key die geautoriseerd is om te loggen op de Peer aan in cloud-config
 2. Voeg de juiste variabelen toe aan NETBIRD_DOMAIN, AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_AUDIENCE & LETSENCRYPT_EMAIL in cloud-config
-3. Plaats cloud-config & csnn_netbird.ssh op de peer VOOR de eerste boot
+3. Plaats cloud-config op de peer VOOR de eerste boot
 4. De peer wordt automatisch toegevoegd aan de management server na de eerste boot
 
