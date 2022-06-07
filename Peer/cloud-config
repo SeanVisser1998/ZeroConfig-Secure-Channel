@@ -15,23 +15,20 @@ users:
   - name: VIL
     ssh_authorized_keys:
       - <USER SSH KEY>
-	sudo: ['ALL=(ALL) NOPASSWD:ALL']
-	groups: VirtualIoT, sudo
-	shell: /bin/bash
-	
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: VirtualIoT, sudo
+    shell: /bin/bash
+
 #Env variables aanmaken voor gebruik in Netbird.sh (Netbird management server setup)
 write_files:
 - path: /etc/environment
   content: |
     NETBIRD_DOMAIN=""
-	NETBIRD_PORT=""
-	NETBIRD_SETUP_KEY=""
+    NETBIRD_PORT=""
+    NETBIRD_SETUP_KEY=""
   append: true
-
-#SSH keys en gebruikers aanmaken
-write_files:
-  - path: /etc/ssh/sshd_config
-    content: |
+- path: /etc/ssh/sshd_config
+  content: |
          Port 2
          Protocol 2
          HostKey /etc/ssh/ssh_host_rsa_key
@@ -65,3 +62,4 @@ write_files:
 		 
 runcmd:
   - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Peer && rm cloud-config && chmod +x csnn_peer.sh && ./csnn_peer.sh
+
