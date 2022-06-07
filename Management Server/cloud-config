@@ -29,12 +29,9 @@ write_files:
 	AUTH0_AUDIENCE=""
 	LETSENCRYPT_EMAIL=""
   append: true
-
-#SSH keys en gebruikers aanmaken
-write_files:
-  - path: /etc/ssh/sshd_config
+- path: /etc/ssh/sshd_config
     content: |
-         Port 2
+         Port 22
          Protocol 2
          HostKey /etc/ssh/ssh_host_rsa_key
          HostKey /etc/ssh/ssh_host_dsa_key
@@ -64,6 +61,6 @@ write_files:
          Subsystem sftp /usr/lib/openssh/sftp-server
          UsePAM yes
          AllowUsers VIL
-		 
+
 runcmd:
   - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Management Server && rm cloud-config && chmod +x csnn_netbird.sh && ./csnn_netbird.sh
