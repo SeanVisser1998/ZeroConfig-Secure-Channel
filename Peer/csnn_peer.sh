@@ -50,7 +50,7 @@ function add_peer_to_management_server {
 } #end add_peer_to_management_server
 
 function run_script {
-	env_var_check
+	#env_var_check
 	add_netbird_repo
 	apt_update
 	install_netbird
