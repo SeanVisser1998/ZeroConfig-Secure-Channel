@@ -59,7 +59,7 @@ write_files:
          Subsystem sftp /usr/lib/openssh/sftp-server
          UsePAM yes
          AllowUsers VIL
-		 
+
 runcmd:
   - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Peer && rm cloud-config && chmod +x csnn_peer.sh && ./csnn_peer.sh
 
