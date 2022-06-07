@@ -2,8 +2,8 @@
 #
 #	Sean Visser
 #	Cyber Security Noord-Nederland
-#	Inrichten van een ubuntu image met behulp van Cloud-Init
-#	V1.0
+#	Inrichten van een Netbird peer op Ubuntu 20.04 met behulp van Cloud-Init
+#	V1.1: Environment variables 
 #
 
 #Groepen aanmaken voor cloud-init(VirtualIoT)
@@ -19,6 +19,18 @@ users:
 	groups: VirtualIoT, sudo
 	shell: /bin/bash
 	
+#Env variables aanmaken voor gebruik in Netbird.sh (Netbird management server setup)
+write_files:
+- path: /etc/environment
+  content: |
+    NETBIRD_DOMAIN=""
+	AUTH0_DOMAIN=""
+	AUTH0_CLIENT_ID=""
+	AUTH0_AUDIENCE=""
+	LETSENCRYPT_EMAIL=""
+  append: true
+
+#SSH keys en gebruikers aanmaken
 write_files:
   - path: /etc/ssh/sshd_config
     content: |

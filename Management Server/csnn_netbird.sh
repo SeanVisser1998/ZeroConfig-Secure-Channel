@@ -3,7 +3,7 @@
 #	Sean Visser
 #	Cyber Security Noord-Nederland: Virtual IoT Lab
 #	Script for automated setup of Netbird management-server
-#	V1.0
+#	V1.1: Environment variables
 #
 #	https://netbird.io/docs/getting-started/self-hosting
 #
@@ -12,7 +12,7 @@
 #	- Auth0: Netbird uses Auth0 to authenticate to the web interface
 #
 #	Planned updates:
-# - CLOUD-INIT INTEGRATION
+#   - CLOUD-INIT INTEGRATION with ENV variables
 #	- Proper variable initalization
 #	- Proper parameter checking
 #	- Modify existing setup.env instead of creating new one :)
@@ -21,30 +21,20 @@
 #   - Verify AUTH0 parameters 
 #
 # Declaring global variables
-netbird_domain=$1
-netbird_auth0_domain=$2
-netbird_auth0_client_id=$3
-netbird_auth0_audience=$4
-netbird_letsencrypt_email=$5
+netbird_domain=$NETBIRD_DOMAIN
+netbird_auth0_domain=$AUTH0_DOMAIN
+netbird_auth0_client_id=$AUTH0_CLIENT_ID
+netbird_auth0_audience=$AUTH0_AUDIENCE
+netbird_letsencrypt_email=$LETSENCRYPT_EMAIL
 
 function print_script_usage {
-	echo "Usage: ./csnn_netbird <netbird_domain> <netbird_auth0_domain> <netbird_auth0_client_id> <netbird_auth0_audience> <netbird_letsencrypt_email>"
+	echo "Environment variables not set! Exiting!"
 } #end print_script_usage
-
-
-if [[ $# -ne 5 ]] ; then
-	print_script_usage
-	exit 1
-
-fi
-
-
 
 if [[ -z $netbird_domain || -z $netbird_auth0_domain || -z $netbird_auth0_client_id || -z netbird_auth0_audience || -z netbird_letsencrypt_email ]] ; then
 	print_script_usage
 	exit 1
 fi	
-
 
 # Function to update apt repositories
 function update_apt {

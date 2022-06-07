@@ -27,14 +27,15 @@ Dependancies:
 - Auth0
 
 Installatie Netbird server:
-1. Log in op de server waarop de Netbird management server dient te komen
-2. git clone https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git
-3. chmod +x csnn_netbird.sh
-4. ./csnn_netbird.sh <domein_naam> <auth0_domein_naam> <auth0_client_id> <auth0_audience> <letsencrypt_email>
+1. Open poort 443, 33071, 33073 & 10000 op de firewall
+2. Pas <USER SSH KEY> aan in cloud-config
+3. Voeg de juiste variabelen toe aan NETBIRD_DOMAIN, AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_AUDIENCE & LETSENCRYPT_EMAIL in cloud-config
+4. Plaats cloud-config & csnn_netbird.ssh op de server VOOR de eerste boot
+5. Netbird management server wordt nu automatisch ingesteld na de eerste boot
 
 Peer toevoegen aan management server:
-1. Log in op de peer die toegevoegd dient te worden aan de Netbird management server
-2. git clone https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git
-3. chmod +x csnn_netbird_add_peer.sh
-4. ./csnn_netbird_add_peer.sh <domein_netbird_server:poort_netbird_server> <netbird_setup_key>
-5. Default poort_netbird_server = 33071
+1. Pas <USER SSH KEY> aan in cloud-config
+2. Voeg de juiste variabelen toe aan NETBIRD_DOMAIN, AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_AUDIENCE & LETSENCRYPT_EMAIL in cloud-config
+3. Plaats cloud-config & csnn_netbird.ssh op de peer VOOR de eerste boot
+4. De peer wordt automatisch toegevoegd aan de management server na de eerste boot
+
