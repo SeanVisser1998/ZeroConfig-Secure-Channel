@@ -46,7 +46,7 @@ function env_var_check {
 } #end env_var_check
 
 function add_peer_to_management_server {
-	sudo netbird up --management-url ${netbird_domain}:${netbird_port} --setup-key ${netbird_setup_key}
+	sudo netbird up --management-url https://${netbird_domain}:${netbird_port} --setup-key ${netbird_setup_key}
 } #end add_peer_to_management_server
 
 function run_script {
