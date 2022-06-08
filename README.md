@@ -39,3 +39,6 @@ Peer toevoegen aan management server:
 3. Plaats cloud-config op de peer VOOR de eerste boot
 4. De peer wordt automatisch toegevoegd aan de management server na de eerste boot
 
+!!BELANGRIJK WANNEER PEER WORDT INGERICHT OP RASPBERY PI OF ANDER APPARAAT WAT VAN NETWERK KAN WISSELEN!!
+
+Elke keer dat van netwerk verwisselt wordt, wordt de P2P verbinding verbroken. Wanneer de Raspberry Pi bijvoorbeeld naar een klant gestuurd wordt, is een workaround: Voer het opzetten van de Netbird verbinding uit in CRON job bij boot en/of wisseling van netwerk
