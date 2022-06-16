@@ -18,16 +18,14 @@ users:
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     groups: VirtualIoT, sudo
     shell: /bin/bash
-	
+
 #Env variables aanmaken voor gebruik in Netbird.sh (Netbird management server setup)
 write_files:
 - path: /etc/environment
   content: |
     NETBIRD_DOMAIN=""
-    AUTH0_DOMAIN=""
-    AUTH0_CLIENT_ID=""
-    AUTH0_AUDIENCE=""
-    LETSENCRYPT_EMAIL=""
+    NETBIRD_PORT=""
+    NETBIRD_SETUP_KEY=""
   append: true
 - path: /etc/ssh/sshd_config
   content: |
@@ -54,7 +52,7 @@ write_files:
          ChallengeResponseAuthentication no
          X11Forwarding yes
          X11DisplayOffset 10
-         PrintMotd no
+         PrintMotd yes
          PrintLastLog yes
          TCPKeepAlive yes
          AcceptEnv LANG LC_*
@@ -63,4 +61,5 @@ write_files:
          AllowUsers VIL
 
 runcmd:
-  - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Management Server && rm cloud-config && chmod +x csnn_netbird.sh && ./csnn_netbird.sh
+  - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Peer && rm cloud-config && chmod +x csnn_peer.sh && ./csnn_peer.sh
+
