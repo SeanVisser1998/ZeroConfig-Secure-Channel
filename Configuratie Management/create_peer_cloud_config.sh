@@ -76,7 +76,7 @@ function export_encrypted_private_key() {
     fi
     private_key=get_generated_private_key $1
 
-    # ATM echo it, cba changing it to something fancy like file sharing service or even, especially not for 0€ an hour and a deadline approaching, pls kill me already :')
+    # ATM print it on screen, but would be nicer to have it sent somewhere else where only the customer can read it.
     cat $private_key
     echo " "
     echo "Please confirm that you have safely stored this private key outside of the CMDB server. Did you? "
@@ -91,7 +91,7 @@ function export_encrypted_private_key() {
 }
 
 #
-#   Section 2: Netbird domain to cloud-config. EZ
+#   Section 2: Netbird domain to cloud-config.
 #
 
 # One PA
@@ -105,7 +105,7 @@ func add_netbird_domain_cloud_config(){
 }
 
 #
-#   Section 3: Netbird setup-key to cloud-config. Really really really hard :( Infeasable due to time restraints for now
+#   Section 3: Netbird setup-key to cloud-config. Really really really hard. Infeasable due to time restraints for now
 #
 
 # Two PA
@@ -113,7 +113,7 @@ func add_setup_key_cloud_config(){
 
     #
     #   Netbird setup-keys are stored in structs within Go AND in file (store.json), all within Docker container :): I CRI Not feasible given time constraints, sowwy Jos OwO
-    #   workaround: When user runs script, ask them for setup key :D
+    #   workaround: When user runs script, ask them for setup key 
     #
     if [[ $# -ne 2 ]]; then
         echo "Invalid argument length passed to get_valid_setup_key. Exiting..."
@@ -128,12 +128,14 @@ func query_user_setup_key(){
 
     echo "Please provide a valid Netbird setup key from ${NETBIRD_DOMAIN}"
     read setup_key_in
-    echo "Your setup key is ${setup_key_in}, correct?"
+    echo "Your setup key is ${setup_key_in}, correct? (Y | N)"
     read confirm_thing 
     if [[ ${confirm_thing^^} != "YES" | ${confirm_thing^^} != "Y" ]]; then
-        echo "Okay thank you for confirming ${setup_key_in} is a valid Netbird setup_key from ${NETBIRD_DOMAIN}"
+        echo "Okay, let's try again "
+        query_user_setup_key
     fi
 
+    echo "Okay thank you for confirming ${setup_key_in} is a valid Netbird setup_key from ${NETBIRD_DOMAIN}"
     return setup_key_in
     
 }
@@ -153,7 +155,7 @@ func add_netbird_port_cloud_config(){
 }
 
 #
-#   Section 5: stitching everything together OwO I LIKE TURTLES
+#   Section 5: stitching everything together
 #
 func new_raspberry_pi(){
 
@@ -171,12 +173,12 @@ func new_raspberry_pi(){
 
     cloud_init_file=cloud_init_${name}
 
-    # Generating password to encrypt private key with :D
+    # Generating password to encrypt private key with 
     gen_pass=generate_password_keys
 
     generate_key_pair ${name} ${gen_pass}
 
-    #Getting the public key :D
+    #Getting the public key
     pub_key=get_generated_public_key ${name}
     add_public_key_to_cloud_config ${pub_key} ${cloud_init_file}
 
