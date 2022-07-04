@@ -130,7 +130,7 @@ function query_user_setup_key(){
     read setup_key_in
     echo "Your setup key is ${setup_key_in}, correct? (Y | N)"
     read confirm_thing 
-    if [[ ${confirm_thing^^} != "YES" | ${confirm_thing^^} != "Y" ]]; then
+    if [[ ${confirm_thing^^} != "YES" || ${confirm_thing^^} != "Y" ]]; then
         echo "Okay, let's try again "
         query_user_setup_key
     fi
