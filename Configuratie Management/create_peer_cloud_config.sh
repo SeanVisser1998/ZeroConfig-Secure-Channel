@@ -82,7 +82,7 @@ function export_encrypted_private_key() {
     echo "Please confirm that you have safely stored this private key outside of the CMDB server. Did you? "
     read confirm_thing
 
-    if [[ ${confim_thing^^} != "YES" | ${confim_thing^^} != "Y" ]]; then
+    if [[ ${confim_thing^^} != "YES" || ${confim_thing^^} != "Y" ]]; then
         echo "Please say: yes or y."
         echo "Please store it in a safe location, so it can be given to the customer :)"
     fi
