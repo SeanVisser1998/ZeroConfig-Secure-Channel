@@ -179,7 +179,7 @@ function new_raspberry_pi(){
     generate_key_pair ${name} ${gen_pass}
 
     #Getting the public key
-    pub_key=get_generated_public_key ${name}
+    pub_key=get_generated_public_key "${name}"
     add_public_key_to_cloud_config ${pub_key} ${cloud_init_file}
 
     #Getting the encrypted private key
