@@ -95,7 +95,7 @@ function export_encrypted_private_key() {
 #
 
 # One PA
-func add_netbird_domain_cloud_config(){
+function add_netbird_domain_cloud_config(){
     if [[ $# -ne 1 ]]; then
         echo "Invalid argument length passed to add_netbird_domain_cloud_config. Exiting..."
         exit 1
@@ -109,7 +109,7 @@ func add_netbird_domain_cloud_config(){
 #
 
 # Two PA
-func add_setup_key_cloud_config(){
+function add_setup_key_cloud_config(){
 
     #
     #   Netbird setup-keys are stored in structs within Go AND in file (store.json), all within Docker container :): I CRI Not feasible given time constraints, sowwy Jos OwO
@@ -124,7 +124,7 @@ func add_setup_key_cloud_config(){
     sed -i 's+NETBIRD_SETUP_KEY=""+NETBIRD_SETUP_KEY="'"${setup_key}"'"+' ${cloud-config}
 }
 
-func query_user_setup_key(){
+function query_user_setup_key(){
 
     echo "Please provide a valid Netbird setup key from ${NETBIRD_DOMAIN}"
     read setup_key_in
@@ -143,7 +143,7 @@ func query_user_setup_key(){
 #
 #   Section 4: Netbird port to cloud-config file. 
 #
-func add_netbird_port_cloud_config(){
+function add_netbird_port_cloud_config(){
     if [[ $# -ne 2 ]]; then
         echo "Invalid argument length passed to add_netbird_port_cloud_config. Exiting..."
         exit 1
@@ -157,7 +157,7 @@ func add_netbird_port_cloud_config(){
 #
 #   Section 5: stitching everything together
 #
-func new_raspberry_pi(){
+function new_raspberry_pi(){
 
     if [[ $# -ne 2 ]]; then
         echo "Invalid argument length passed to new_raspberry_pi. Exiting..."
