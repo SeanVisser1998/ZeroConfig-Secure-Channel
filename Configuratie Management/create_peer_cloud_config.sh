@@ -12,9 +12,10 @@
 gen_pass=""
 public_key=""
 encrypted_private_key=""
-
+hostname=$1
 # Two PA
 function generate_key_pair() {
+    echo $#
     if [[ $# -ne 2 ]]; then
         echo "Invalid argument length passed to generate_key_pair. Exiting..."
         exit 1
@@ -54,7 +55,17 @@ function generate_password_keys() {
     gen_pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
 } #end generate_password_keys()
 
-# Two PA
+# One PA
+function add_hostname_to_cloud_config(){
+    if [[ $# -ne 1 ]]; then
+	echo "Invaled argument length passed to add_host_name_to_cloud_config. Exiting..."
+	exit 1
+    fi
+
+    sed -i "s/<HOSTNAME>/${hostname}" $1
+}
+
+# One PA
 function add_public_key_to_cloud_config(){
     if [[ $# -ne 1 ]]; then
         echo "Invalid argument length passed to add_public_key_to_cloud_config. Exiting..."
@@ -163,6 +174,7 @@ function new_raspberry_pi(){
     get_generated_public_key $name
     get_generated_private_key $name
 
+    add_hostname_to_cloud_config $cloud_init_file
 
     #Getting the public key
     add_public_key_to_cloud_config $cloud_init_file

@@ -6,6 +6,9 @@
 #	V1.1: Environment variables 
 #
 
+#Hostname for identification in Network :D
+hostname: <HOSTNAME>
+
 #Groepen aanmaken voor cloud-init(VirtualIoT)
 groups:
   - VirtualIoT
