@@ -83,10 +83,14 @@ function export_encrypted_private_key() {
     fi
     
     # ATM print it on screen, but would be nicer to have it sent somewhere else where only the customer can read it.
-    echo "Private key encryption password: "
+    echo ""
+    echo ""
+    echo "!!! Private key encryption password: "
     echo $gen_pass
-    echo "Please write down the private key encryption password "
+    echo "!!! Please write down the private key encryption password !!!"
     echo "You can find the key pair under $1"
+    echo ""
+    echo ""
 }
 
 #
