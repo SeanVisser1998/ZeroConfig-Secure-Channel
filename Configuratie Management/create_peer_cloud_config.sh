@@ -23,7 +23,7 @@ function generate_key_pair() {
 
     file_name=$1
     private_key_password=$2
-    ssh-keygen -t ed25519 -f ${file_name} -q -N "${private_key_password}"
+    ssh-keygen -t ed25519 -f ${file_name} -q -N ${private_key_password}
 } #end generate_key_pair()
 
 # One PA
