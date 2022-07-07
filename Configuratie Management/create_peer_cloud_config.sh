@@ -62,7 +62,7 @@ function add_hostname_to_cloud_config(){
 	exit 1
     fi
 
-    sed -i "s/<HOSTNAME>/${hostname}" $1
+    sed -i "s|<HOSTNAME>|${hostname}|" $1
 }
 
 # One PA
@@ -72,7 +72,7 @@ function add_public_key_to_cloud_config(){
         exit 1
     fi
 
-    sed -i "s/<USER SSH KEY>/${public_key}/" $1
+    sed -i "s|<USER SSH KEY>|${public_key}|" $1
 } #end add_public_key_to_cloud_config
 
 # One PA
@@ -99,7 +99,7 @@ function add_netbird_domain_cloud_config(){
         echo "Invalid argument length passed to add_netbird_domain_cloud_config. Exiting..."
         exit 1
     fi
-    sed -i 's+NETBIRD_DOMAIN=""+NETBIRD_DOMAIN="'"$NETBIRD_DOMAIN"'"+' $1
+    sed -i 's|NETBIRD_DOMAIN=""|NETBIRD_DOMAIN="'"$NETBIRD_DOMAIN"'"|' $1
 }
 
 #
@@ -118,7 +118,7 @@ function add_setup_key_cloud_config(){
         exit 1
     fi
     setup_key=$1
-    sed -i 's+NETBIRD_SETUP_KEY=""+NETBIRD_SETUP_KEY="'"${setup_key}"'"+' $2
+    sed -i 's|NETBIRD_SETUP_KEY=""|NETBIRD_SETUP_KEY="'"${setup_key}"'"|' $2
 }
 
 function query_user_setup_key(){
@@ -146,7 +146,7 @@ function add_netbird_port_cloud_config(){
     fi
 
     netbird_port=$1
-    sed -i 's+NETBIRD_PORT=""+NETBIRD_PORT="'"${netbird_port}"'"+' $2
+    sed -i 's|NETBIRD_PORT=""|NETBIRD_PORT="'"${netbird_port}"'"|' $2
 }
 
 #
