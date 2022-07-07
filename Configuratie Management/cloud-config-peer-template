@@ -64,5 +64,5 @@ write_files:
          AllowUsers VIL
 
 runcmd:
-  - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Peer && rm cloud-config && chmod +x csnn_peer.sh && ./csnn_peer.sh
+  - git clone --branch Development https://github.com/SeanVisser1998/ZeroConfig-Secure-Channel.git && cd ZeroConfig-Secure-Channel && cd Peer && sudo rm cloud-config && sudo chmod +x csnn_peer.sh && sudo ./csnn_peer.sh
 
