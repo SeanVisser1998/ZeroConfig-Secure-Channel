@@ -51,6 +51,7 @@ write_files:
          IgnoreRhosts yes
          RhostsRSAAuthentication no
          HostbasedAuthentication no
+         PasswordAuthentication no
          PermitEmptyPasswords no
          ChallengeResponseAuthentication no
          X11Forwarding yes
